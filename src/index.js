@@ -1,3 +1,14 @@
 module.exports = function check(str, bracketsConfig) {
-  // your solution
+  let strArr = str.split('');    
+  for(let i = 0; i < strArr.length; i++){
+      for(let j = 0; j < bracketsConfig.length; j++){             
+          if(strArr[i] == bracketsConfig[j][0] && strArr[i+1] == bracketsConfig[j][1]){
+            strArr.splice(i,2)
+              i = -1;  
+          }  else {                   
+              continue;
+          }               
+      } 
+  }  
+  return strArr.length == 0;
 }
